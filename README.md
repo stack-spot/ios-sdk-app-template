@@ -1,1 +1,1 @@
-# ios-sdk-app-template
+# studio-zup-ios-sdk-app-template

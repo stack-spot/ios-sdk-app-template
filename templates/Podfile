@@ -1,0 +1,15 @@
+
+platform :ios, '{{inputs.ios_version}}'
+
+install! 'cocoapods',
+  :generate_multiple_pod_projects => true,
+  :incremental_installation => true
+
+# Targets
+
+target '{{module_name}}' do
+  use_frameworks!
+
+  target '{{module_name}}Tests' do
+  end
+end

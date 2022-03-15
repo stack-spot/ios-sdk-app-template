@@ -1,0 +1,19 @@
+name: ios-module
+description: This template can generate a standard iOS module/framework
+types:
+  - app-template
+inputs:
+  - label: "Enter the project name:"
+    name: "project_name"
+    type: "text"
+    default: "IosModule"
+  - label: "Enter the groupid to be used as artifact name:"
+    name: "group_id"
+    type: "text"
+    default: "br.com.orange"
+  - label: "Enter the iOS minimum version:"
+    name: "ios_version"
+    type: "text"
+    default: 11.0
+computed-inputs:
+  module_name: "{{project_name|lower}}"

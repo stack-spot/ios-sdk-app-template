@@ -1,0 +1,32 @@
+name: {{module_name}}
+options:
+    bundleIdPrefix: "{{inputs.group_id}}.{{module_name}}"
+    deploymentTarget:
+        iOS: "{{inputs.ios_version}}"
+    createIntermediateGroups: true
+    postGenCommand: pod install
+
+targetTemplates:
+    Default:
+
+packages:
+    SnapshotTesting:
+        url: https://github.com/pointfreeco/swift-snapshot-testing
+        majorVersion: 1.9.0
+
+targets:
+    "{{module_name}}":
+        templates: Default
+        type: framework
+        platform: iOS
+        sources: ["{{module_name}}"]
+        dependencies: []
+
+    "{{module_name}}Tests":
+        templates: Default
+        type: bundle.unit-test
+        platform: iOS
+        dependencies: 
+            - target: {{module_name}}
+            - package: SnapshotTesting
+        sources: ["{{module_name}}Tests"]
